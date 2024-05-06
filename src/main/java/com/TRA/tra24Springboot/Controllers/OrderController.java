@@ -1,10 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -29,12 +26,12 @@ public class OrderController {
         return order1;
     }
 
+    @PutMapping("update")
     public Order updateOrder(@RequestBody Order userOrder){
         order1.setUpdatedDate(new Date());
         order1 = userOrder;
         return order1;
     }
-
 
 
     public String cancelOrder(Integer id){
@@ -43,5 +40,9 @@ public class OrderController {
         }
 
         return "Success";
+    }
+
+    public Order reportOrder(){
+        return order1;
     }
 }
