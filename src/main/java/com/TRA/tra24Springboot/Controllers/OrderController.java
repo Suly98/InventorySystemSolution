@@ -33,8 +33,8 @@ public class OrderController {
         return order1;
     }
 
-
-    public String cancelOrder(Integer id){
+    @PostMapping("cancel/{id}")
+    public String cancelOrder(@PathVariable Integer id){
         if(order1.getId().equals(id)){
             order1.setStatus(OrderStatus.CANCELED);
         }
@@ -42,6 +42,7 @@ public class OrderController {
         return "Success";
     }
 
+    @GetMapping("get")
     public Order reportOrder(){
         return order1;
     }
