@@ -2,6 +2,7 @@ package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.*;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class OrderController {
     Order order1 = new Order();
 
     @PostMapping("create")
-    public void createOrder(List<Product> productList){
+    public Order createOrder(List<Product> productList){
         order1.setId(1);
         order1.setOrderDate( new Date());
         order1.setStatus(OrderStatus.PENDING);
@@ -24,6 +25,13 @@ public class OrderController {
         order1.setProductsOrdered(productList);
         order1.setPaymentStatus(PaymentStatus.PAID);
         order1.setPaymentType(PaymentType.CASH);
+
+        return order1;
+    }
+
+    public Order updateOrder(@RequestBody Order userOrder){
+        order1 = userOrder;
+        return order1;
     }
 
 
