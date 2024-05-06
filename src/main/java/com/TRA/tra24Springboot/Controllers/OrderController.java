@@ -30,9 +30,18 @@ public class OrderController {
     }
 
     public Order updateOrder(@RequestBody Order userOrder){
+        order1.setUpdatedDate(new Date());
         order1 = userOrder;
         return order1;
     }
 
 
+
+    public String cancelOrder(Integer id){
+        if(order1.getId().equals(id)){
+            order1.setStatus(OrderStatus.CANCELED);
+        }
+
+        return "Success";
+    }
 }
