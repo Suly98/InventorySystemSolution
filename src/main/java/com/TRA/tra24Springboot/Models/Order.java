@@ -15,5 +15,6 @@ public class Order extends BaseEntity {
     String description;
     PaymentStatus paymentStatus;
     PaymentType paymentType;
+    Date updatedDate;
     Date dueDate;
 }
