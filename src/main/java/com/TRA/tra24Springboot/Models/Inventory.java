@@ -2,6 +2,7 @@ package com.TRA.tra24Springboot.Models;
 
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -15,6 +16,11 @@ public class Inventory extends BaseEntity {
     String phoneNumber;
     String openingHours;
     String closingHours;
+
+    //My updates:
+    List<Order> orders;
+    Date date;
+
 
 
 
