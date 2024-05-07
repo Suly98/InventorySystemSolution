@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -16,6 +17,13 @@ public class ReportingController {
         }
     }
 
-
+    public Boolean isThere(Inventory products){
+        for(Product p : products.getProducts() ){
+            if(p.getQuantity().equals(0)){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
