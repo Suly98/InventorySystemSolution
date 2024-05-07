@@ -18,8 +18,8 @@ public class Inventory extends BaseEntity {
     String closingHours;
 
     //My updates:
-    List<Order> orders;
-    Date date;
+
+    Date receivedDate;
 
 
 
