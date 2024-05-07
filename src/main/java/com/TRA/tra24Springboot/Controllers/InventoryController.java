@@ -3,6 +3,9 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -10,10 +13,12 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/Inventory")
 public class InventoryController {
 
     Inventory newInventory = new Inventory();
 
+    @PostMapping("add")
     //this will add a list of products and orders to the inventory
 //    that is already there
     public Inventory addStock(List<Product> productList) {
@@ -27,6 +32,7 @@ public class InventoryController {
         return newInventory;
     }
 
+    @GetMapping("get")
     public void lowOnInventory(List<Product> productList) {
         if (productList.size() <= 5) {
             System.out.println("INVENTORY IS LOW!!");
@@ -35,6 +41,7 @@ public class InventoryController {
         }
     }
 
+    @PostMapping("return")
     public String returnProcess(Integer id, Integer returnedQuantity) {
         for (Product p : newInventory.getProducts()) {
             if (p.getId().equals(id)) {
