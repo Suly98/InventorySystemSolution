@@ -8,7 +8,9 @@ import java.util.List;
 
 public class ReportingController {
 
-    @GetMapping("warning")
+    Inventory inventory1 = new Inventory();
+
+
     public void lowOnInventory(List<Product> productList) {
         if (productList.size() <= 5) {
             System.out.println("INVENTORY IS LOW!!");
@@ -16,6 +18,7 @@ public class ReportingController {
             System.out.println("Inventory is OK!");
         }
     }
+
 
     public Boolean isThere(Inventory products){
         for(Product p : products.getProducts() ){
@@ -25,5 +28,11 @@ public class ReportingController {
         }
         return true;
     }
+
+
+    public Inventory reportAll(){
+        return inventory1;
+    }
+
 
 }
