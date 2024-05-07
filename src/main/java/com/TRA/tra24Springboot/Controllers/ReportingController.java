@@ -10,7 +10,7 @@ public class ReportingController {
 
     Inventory inventory1 = new Inventory();
 
-
+    @GetMapping("inventoryCheck")
     public void lowOnInventory(List<Product> productList) {
         if (productList.size() <= 5) {
             System.out.println("INVENTORY IS LOW!!");
@@ -19,7 +19,7 @@ public class ReportingController {
         }
     }
 
-
+    @GetMapping("isThere")
     public Boolean isThere(Inventory products){
         for(Product p : products.getProducts() ){
             if(p.getQuantity().equals(0)){
@@ -29,7 +29,7 @@ public class ReportingController {
         return true;
     }
 
-
+    @GetMapping("report")
     public Inventory reportAll(){
         return inventory1;
     }

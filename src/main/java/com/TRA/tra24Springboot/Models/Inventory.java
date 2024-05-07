@@ -21,7 +21,4 @@ public class Inventory extends BaseEntity {
 
     Date receivedDate;
 
-
-
-
 }
