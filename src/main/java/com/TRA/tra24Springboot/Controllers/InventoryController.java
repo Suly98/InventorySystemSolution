@@ -14,9 +14,9 @@ public class InventoryController {
 
     Inventory newInventory = new Inventory();
 
-      //this will add a list of products and orders to the inventory
+    //this will add a list of products and orders to the inventory
 //    that is already there
-    public Inventory addStock(List<Product> productList){
+    public Inventory addStock(List<Product> productList) {
         newInventory.setLocation("Ghala");
         newInventory.setManager("Ahmed");
         newInventory.setProducts(productList);
@@ -24,18 +24,30 @@ public class InventoryController {
         newInventory.setSupplier("Haider Darwish");
         newInventory.setReceivedDate(new Date());
         newInventory.setOpeningHours("from 10am - 12am");
-
         return newInventory;
     }
 
-    public void lowOnInventory(List<Product> productList){
-        if(productList.size() <= 5){
+    public void lowOnInventory(List<Product> productList) {
+        if (productList.size() <= 5) {
             System.out.println("INVENTORY IS LOW!!");
         } else {
             System.out.println("Inventory is OK!");
         }
     }
 
+    public String returnProcess(Integer id, Integer returnedQuantity) {
+        for (Product p : newInventory.getProducts()) {
+            if (p.getId().equals(id)) {
+                p.setQuantity(p.getQuantity() + returnedQuantity);
+            } else{
+                p.setId(id);
+                p.setQuantity(returnedQuantity);
+            }
+        }
+
+
+        return "Product returned Successfully!";
+    }
 
 
 }
