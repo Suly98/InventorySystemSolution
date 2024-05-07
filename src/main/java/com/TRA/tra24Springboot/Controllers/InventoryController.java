@@ -31,28 +31,18 @@ public class InventoryController {
         return newInventory;
     }
 
-    @GetMapping("warning")
-    public void lowOnInventory(List<Product> productList) {
-        if (productList.size() <= 5) {
-            System.out.println("INVENTORY IS LOW!!");
-        } else {
-            System.out.println("Inventory is OK!");
-        }
-    }
 
     @PostMapping("return")
     public String returnProcess(@RequestParam Integer id, @RequestParam Integer quantity) {
         for (Product p : newInventory.getProducts()) {
             if (p.getId().equals(id)) {
                 p.setQuantity(p.getQuantity() + quantity);
-            } else{
+            } else {
                 Product product = new Product();
                 product.setId(id);
                 product.setQuantity(quantity);
             }
         }
-
-
         return "Product returned Successfully!";
     }
 
