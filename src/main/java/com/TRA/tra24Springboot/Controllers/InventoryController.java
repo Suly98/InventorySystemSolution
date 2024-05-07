@@ -28,7 +28,13 @@ public class InventoryController {
         return newInventory;
     }
 
-
+    public void lowOnInventory(List<Product> productList){
+        if(productList.size() <= 5){
+            System.out.println("INVENTORY IS LOW!!");
+        } else {
+            System.out.println("Inventory is OK!");
+        }
+    }
 
 
 
