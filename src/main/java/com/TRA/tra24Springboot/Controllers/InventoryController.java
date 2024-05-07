@@ -3,10 +3,7 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -19,12 +16,14 @@ public class InventoryController {
     Inventory newInventory = new Inventory();
 
     @PostMapping("add")
-    //this will add a list of products and orders to the inventory
-//    that is already there
-    public Inventory addStock(List<Product> productList) {
+    public Inventory addStock(/*List<Product> productList*/) {
+        newInventory.setId(1);
         newInventory.setLocation("Ghala");
         newInventory.setManager("Ahmed");
-        newInventory.setProducts(productList);
+        newInventory.setCreatedDate(new Date());
+/*
+        newInventory.setProducts(productList); will add it later
+*/
         newInventory.setPhoneNumber("97796369");
         newInventory.setSupplier("Haider Darwish");
         newInventory.setReceivedDate(new Date());
@@ -32,7 +31,7 @@ public class InventoryController {
         return newInventory;
     }
 
-    @GetMapping("get")
+    @GetMapping("warning")
     public void lowOnInventory(List<Product> productList) {
         if (productList.size() <= 5) {
             System.out.println("INVENTORY IS LOW!!");
@@ -42,19 +41,19 @@ public class InventoryController {
     }
 
     @PostMapping("return")
-    public String returnProcess(Integer id, Integer returnedQuantity) {
+    public String returnProcess(@RequestParam Integer id, @RequestParam Integer quantity) {
         for (Product p : newInventory.getProducts()) {
             if (p.getId().equals(id)) {
-                p.setQuantity(p.getQuantity() + returnedQuantity);
+                p.setQuantity(p.getQuantity() + quantity);
             } else{
-                p.setId(id);
-                p.setQuantity(returnedQuantity);
+                Product product = new Product();
+                product.setId(id);
+                product.setQuantity(quantity);
             }
         }
 
 
         return "Product returned Successfully!";
     }
-
 
 }
