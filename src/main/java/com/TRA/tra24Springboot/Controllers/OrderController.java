@@ -13,7 +13,8 @@ public class OrderController {
     Order order1 = new Order();
 
     @PostMapping("create")
-    public Order createOrder(/*List<Product> productList*/){
+    public Order createOrder(/*List<Product> productList*/){ // if you already enabled a list of products then take
+        // the comments
         order1.setId(1);
         order1.setOrderDate( new Date());
         order1.setStatus(OrderStatus.PENDING);
@@ -21,7 +22,7 @@ public class OrderController {
         order1.setDescription("The first order");
         order1.setPaymentStatus(PaymentStatus.PAID);
 /*
-        order1.setProductsOrdered(productList);
+        order1.setProductsOrdered(productList); Also add this part!
 */
         order1.setPaymentType(PaymentType.CASH);
 
