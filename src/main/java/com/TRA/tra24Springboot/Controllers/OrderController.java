@@ -3,12 +3,16 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+
+
 
     Order order1 = new Order();
 
@@ -25,6 +29,7 @@ public class OrderController {
         order1.setProductsOrdered(productList); Also add this part!
 */
         order1.setPaymentType(PaymentType.CASH);
+
 
         return order1;
     }

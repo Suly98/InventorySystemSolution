@@ -1,8 +1,10 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.InvoiceRepositories.InventoryRepository;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -15,10 +17,13 @@ public class InventoryController {
 
     Inventory newInventory = new Inventory();
 
+    @Autowired
+    InventoryRepository inventoryRepository;
+
     @PostMapping("add")
     public Inventory addStock(/*List<Product> productList*/) {
-        newInventory.setId(1);
-        newInventory.setLocation("Ghala");
+
+        newInventory.setLocation("Gala");
         newInventory.setManager("Ahmed");
         newInventory.setCreatedDate(new Date());
 /*
@@ -28,7 +33,9 @@ public class InventoryController {
         newInventory.setSupplier("Haider Darwish");
         newInventory.setReceivedDate(new Date());
         newInventory.setOpeningHours("from 10am - 12am");
-        return newInventory;
+        newInventory.setIsActive(Boolean.TRUE);
+
+        return inventoryRepository.save(newInventory);
     }
 
 
