@@ -27,6 +27,13 @@ public class InventoryController {
     }
 
 
+    @PostMapping("delete")
+    public String deleteInventory(@RequestParam String locationName){
+
+        inventoryService.deleteInventory(locationName);
+        return "Success!";
+    }
+
 /*    @PostMapping("return")
     public String returnProcess(@RequestParam Integer id, @RequestParam Integer quantity) {
         for (Product p : newInventory.getProductsInInventory()) {
