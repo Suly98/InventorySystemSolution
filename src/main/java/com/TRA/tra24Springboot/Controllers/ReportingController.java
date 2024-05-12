@@ -22,7 +22,7 @@ public class ReportingController {
 
     @GetMapping("isThere")
     public Boolean isThere(@NotNull Inventory products){
-        for(Product p : products.getProducts() ){
+        for(Product p : products.getProductsInInventory() ){
             if(p.getQuantity().equals(0)){
                 return false;
             }
