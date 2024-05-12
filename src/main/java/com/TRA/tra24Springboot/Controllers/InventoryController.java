@@ -4,6 +4,7 @@ import com.TRA.tra24Springboot.InvoiceRepositories.InventoryRepository;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
+import com.TRA.tra24Springboot.Services.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,8 @@ public class InventoryController {
 
     @Autowired
     InventoryRepository inventoryRepository;
+
+    //InventoryService inventoryService;
 
     @PostMapping("add")
     public Inventory addStock(/*List<Product> productList*/) {

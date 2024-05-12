@@ -1,6 +1,8 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.InvoiceRepositories.OrderRepository;
 import com.TRA.tra24Springboot.Models.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,7 +14,8 @@ import java.util.List;
 @RequestMapping("/order")
 public class OrderController {
 
-
+    @Autowired
+    OrderRepository orderRepository;
 
     Order order1 = new Order();
 
@@ -31,7 +34,7 @@ public class OrderController {
         order1.setPaymentType(PaymentType.CASH);
 
 
-        return order1;
+        return orderRepository.save(order1);
     }
 
     @PutMapping("update")
