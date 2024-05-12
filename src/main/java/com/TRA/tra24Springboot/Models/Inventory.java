@@ -26,8 +26,6 @@ public class Inventory extends BaseEntity {
     String openingHours;
     String closingHours;
 
-    //My updates:
-
 
 
 }

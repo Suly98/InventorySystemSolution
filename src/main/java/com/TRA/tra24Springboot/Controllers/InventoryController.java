@@ -34,18 +34,4 @@ public class InventoryController {
         return "Success!";
     }
 
-/*    @PostMapping("return")
-    public String returnProcess(@RequestParam Integer id, @RequestParam Integer quantity) {
-        for (Product p : newInventory.getProductsInInventory()) {
-            if (p.getId().equals(id)) {
-                p.setQuantity(p.getQuantity() + quantity);
-            } else {
-                Product product = new Product();
-                product.setId(id);
-                product.setQuantity(quantity);
-            }
-        }
-        return "Product returned Successfully!";
-    }*/
-
 }
