@@ -18,8 +18,9 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+
     @Autowired
-    ProductDetailsRepository productDetailsRepository;
+    ProductDetailsServices productDetailsServices;
 
 
     public Product addProduct(Product product){
@@ -27,7 +28,7 @@ public class ProductService {
         product.setIsActive(true);
         product.setCreatedDate(new Date());
 
-        product.setProductDetails(productDetailsRepository.save(product.getProductDetails()));
+        productDetailsServices.addToProduct(product.getProductDetails());
 
         return productRepository.save(product);
 
