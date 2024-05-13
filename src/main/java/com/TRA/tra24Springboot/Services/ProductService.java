@@ -19,5 +19,14 @@ public class ProductService {
 
 
 
+    public Product addProduct(Product product, ProductDetails productDetails){
+        product.setSku(UUID.randomUUID());
+        product.setIsActive(true);
+        product.setCreatedDate(new Date());
+
+        product.setProductDetails(Arrays.asList(productDetails));
+        return productRepository.save(product);
+
+    }
 
 }
