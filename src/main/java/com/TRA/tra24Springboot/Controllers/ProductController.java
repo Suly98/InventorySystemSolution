@@ -22,10 +22,10 @@ public class ProductController {
 
 
     @PostMapping("add")
-    public Product addProduct(@RequestBody Product product, ProductDetails productDetails){
+    public Product addProduct(@RequestBody Product product){
 
 
-        return productService.addProduct(product, productDetails);
+        return productService.addProduct(product);
     }
 
 //    @PostMapping("delete/{id}")

@@ -19,7 +19,7 @@ public class Product extends BaseEntity {
     Integer quantity;
     String category;
     UUID sku;
-    @OneToMany
+    @OneToOne
     ProductDetails productDetails;
 
     @Override
