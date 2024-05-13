@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Services;
 
+import com.TRA.tra24Springboot.InvoiceRepositories.ProductDetailsRepository;
 import com.TRA.tra24Springboot.InvoiceRepositories.ProductRepository;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
@@ -17,16 +18,18 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    ProductDetailsRepository productDetailsRepository;
 
 
-    public Product addProduct(Product product, ProductDetails productDetails){
+    public Product addProduct(Product product){
         product.setSku(UUID.randomUUID());
         product.setIsActive(true);
         product.setCreatedDate(new Date());
 
-        product.setProductDetails(Arrays.asList(productDetails));
+        product.setProductDetails(productDetailsRepository.save(product.getProductDetails()));
+
         return productRepository.save(product);
 
     }
-
 }
