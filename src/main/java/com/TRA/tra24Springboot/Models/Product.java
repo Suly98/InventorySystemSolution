@@ -22,18 +22,4 @@ public class Product extends BaseEntity {
     @OneToOne
     ProductDetails productDetails;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "Product Name=" + productDetails.name +
-                "Country of Origin= " + productDetails.countryOfOrigin+
-                "quantity=" + quantity +
-                ", category='" + category + '\'' +
-                ", sku=" + sku +
-                ", id=" + id +
-                ", createdDate=" + createdDate +
-                ", updatedDate=" + updatedDate +
-                ", isActive=" + isActive +
-                '}';
-    }
 }
