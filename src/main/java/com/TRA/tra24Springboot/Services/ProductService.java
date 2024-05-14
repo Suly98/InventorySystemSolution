@@ -31,6 +31,5 @@ public class ProductService {
         productDetailsServices.addToProduct(product.getProductDetails());
 
         return productRepository.save(product);
-
     }
 }
