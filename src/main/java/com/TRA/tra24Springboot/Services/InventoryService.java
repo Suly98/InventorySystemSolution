@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Services;
 
+import com.TRA.tra24Springboot.DTO.InventoryDTO;
 import com.TRA.tra24Springboot.InvoiceRepositories.InventoryRepository;
 import com.TRA.tra24Springboot.Models.Inventory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,13 @@ public class InventoryService {
         }
         inventoryRepository.saveAll(updatedList);
         return "Success";
+    }
+
+    public List<InventoryDTO> getAll(){
+        List<Inventory> inventories = inventoryRepository.findAll();
+
+        return InventoryDTO.convertToDTO(inventories);
+
     }
 
 
