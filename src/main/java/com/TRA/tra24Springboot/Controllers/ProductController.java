@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.ProductDTO;
 import com.TRA.tra24Springboot.InvoiceRepositories.ProductRepository;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("product")
 public class ProductController {
 
     @Autowired
@@ -22,8 +23,7 @@ public class ProductController {
 
 
     @PostMapping("add")
-    public Product addProduct(@RequestBody Product product){
-
+    public ProductDTO addProduct(@RequestBody Product product){
 
         return productService.addProduct(product);
     }
@@ -52,8 +52,8 @@ public class ProductController {
 //        globalProduct = userProduct;
 //        return globalProduct;
 //    }
-//    @GetMapping("get")
-//    public  Product reportProduct(){
-//        return  globalProduct;
-//    }
+    @GetMapping("get")
+    public List<ProductDTO> getAllProducts(){
+        return productService.getAllProducts();
+    }
 }
