@@ -43,7 +43,7 @@ public class ProductController {
 //        }
 //        return "Success!";
 //    }
-//
+
 //    @PutMapping("update")
 //    public Product updateProduct(@RequestBody Product userProduct){
 //
@@ -57,7 +57,12 @@ public class ProductController {
 //        globalProduct = userProduct;
 //        return globalProduct;
 //    }
+
     @GetMapping("get")
+    public ProductDTO getProductById(@RequestParam Integer id){
+        return productService.getProductById(id);
+    }
+    @GetMapping("getAll")
     public List<ProductDTO> getAllProducts(){
         return productService.getAllProducts();
     }
