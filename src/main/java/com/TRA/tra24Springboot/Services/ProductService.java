@@ -34,6 +34,22 @@ public class ProductService {
         return dto;
     }
 
+    public String deleteProductById(Integer id){
+        Product productToDelete = productRepository.getProductById(id);
+
+        productToDelete.setIsActive(false);
+
+        productRepository.save(productToDelete);
+
+        return "Success!";
+    }
+
+    public ProductDTO getProductById(Integer id){
+        ProductDTO productDTO = ProductDTO.convertToDTO(productRepository.getProductById(id));
+
+        return productDTO;
+    }
+
     public List<ProductDTO> getAllProducts(){
         List<Product> products = productRepository.findAll();
         return ProductDTO.convertToDTO(products);
