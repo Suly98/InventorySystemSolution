@@ -28,6 +28,11 @@ public class ProductController {
         return productService.addProduct(product);
     }
 
+    @PostMapping("delete")
+    public String deleteById(@RequestParam Integer id){
+        return productService.deleteProductById(id);
+    }
+
 //    @PostMapping("delete/{id}")
 //    public String deleteProduct(@PathVariable Integer id){
 //
