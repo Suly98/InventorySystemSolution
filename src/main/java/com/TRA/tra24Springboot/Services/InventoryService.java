@@ -16,11 +16,15 @@ public class InventoryService {
     @Autowired
     InventoryRepository inventoryRepository;
 
-    public Inventory addInventory(Inventory inventory){
+    public InventoryDTO addInventory(Inventory inventory){
 
         inventory.setCreatedDate(new Date());
         inventory.setIsActive(Boolean.TRUE);
-        return inventoryRepository.save(inventory);
+        inventoryRepository.save(inventory);
+
+        InventoryDTO inventoryDTO = InventoryDTO.convertToDTO(inventory);
+
+        return inventoryDTO;
     }
 
     public String deleteInventory(String location){

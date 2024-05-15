@@ -24,7 +24,7 @@ public class InventoryController {
     InventoryService inventoryService;
 
     @PostMapping("addStock")
-    public Inventory addStock(@RequestBody Inventory inventory){
+    public InventoryDTO addStock(@RequestBody Inventory inventory){
         return inventoryService.addInventory(inventory);
     }
 
