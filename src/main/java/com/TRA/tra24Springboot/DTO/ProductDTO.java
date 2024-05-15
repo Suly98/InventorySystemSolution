@@ -13,12 +13,12 @@ public class ProductDTO {
     Integer id;
     Integer quantity;
     String category;
-    ProductDetails productDetails;
+    ProductDetailsDTO productDetailsDTO;
 
     public static ProductDTO convertToDTO(Product product){
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(product.getId());
-        productDTO.setProductDetails(product.getProductDetails());
+        productDTO.setProductDetailsDTO(ProductDetailsDTO.convertToDTO(product.getProductDetails()));
         productDTO.setCategory(product.getCategory());
         productDTO.setQuantity(product.getQuantity());
 
