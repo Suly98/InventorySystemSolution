@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Models;
 
+import com.TRA.tra24Springboot.DTO.ProductDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class Order extends BaseEntity {
 
     @OneToMany
-    List<Product> productsOrdered;
+    List<ProductDTO> productsOrdered;
     String categoryName;
     Date orderDate;
     @Enumerated(EnumType.STRING)
