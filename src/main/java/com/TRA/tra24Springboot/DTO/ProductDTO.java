@@ -2,11 +2,11 @@ package com.TRA.tra24Springboot.DTO;
 
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
+import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Data
 public class ProductDTO {
 

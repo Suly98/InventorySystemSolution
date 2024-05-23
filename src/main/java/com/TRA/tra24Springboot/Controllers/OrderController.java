@@ -19,14 +19,14 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    Order order1 = new Order();
 
     @PostMapping("create")
-    public OrderDTO createOrder(Order order){
+    public OrderDTO createOrder(@RequestBody Order order){
         return orderService.createOrder(order);
     }
 
-    @PutMapping("update")
+
+/*    @PutMapping("update")
     public Order updateOrder(@RequestBody Order userOrder){
         order1.setUpdatedDate(new Date());
         order1 = userOrder;
@@ -45,5 +45,5 @@ public class OrderController {
     @GetMapping("get")
     public Order reportOrder(){
         return order1;
-    }
+    }*/
 }

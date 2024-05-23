@@ -14,10 +14,9 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
-    @Autowired
-    ProductService productService;
 
-    public OrderDTO createOrder(@RequestBody Order order){
+    public OrderDTO createOrder(Order order){
+
         order.setIsActive(true);
         order.setCreatedDate(new Date());
         orderRepository.save(order);
@@ -25,6 +24,4 @@ public class OrderService {
         OrderDTO dto = OrderDTO.convertToDTO(order);
         return dto;
     }
-
-
 }

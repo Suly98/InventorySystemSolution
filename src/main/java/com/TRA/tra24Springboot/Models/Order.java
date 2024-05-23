@@ -13,7 +13,7 @@ import java.util.List;
 public class Order extends BaseEntity {
 
     @OneToMany
-    List<ProductDTO> productsOrdered;
+    List<Product> productsOrdered;
     String categoryName;
     Date orderDate;
     @Enumerated(EnumType.STRING)
