@@ -6,7 +6,6 @@ import com.TRA.tra24Springboot.InvoiceRepositories.ProductRepository;
 import com.TRA.tra24Springboot.Models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 @Service
@@ -14,8 +13,6 @@ public class ProductService {
 
     @Autowired
     ProductRepository productRepository;
-
-
     @Autowired
     ProductDetailsServices productDetailsServices;
 

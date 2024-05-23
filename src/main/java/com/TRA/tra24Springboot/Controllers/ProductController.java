@@ -20,8 +20,6 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-
-
     @PostMapping("add")
     public ProductDTO addProduct(@RequestBody Product product){
 
