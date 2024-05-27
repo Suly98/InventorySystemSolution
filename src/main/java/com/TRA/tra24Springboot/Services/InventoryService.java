@@ -27,6 +27,13 @@ public class InventoryService {
         return inventoryDTO;
     }
 
+    public InventoryDTO getInventoryByManager(String managerName){
+        Inventory inventory = inventoryRepository.getByName(managerName);
+
+        InventoryDTO inventoryDTO = InventoryDTO.convertToDTO(inventory);
+        return inventoryDTO;
+    }
+
     public String deleteInventory(String location){
         List<Inventory> inventoryToDel = inventoryRepository.getByLocationName(location);
 
