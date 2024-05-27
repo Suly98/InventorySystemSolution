@@ -35,4 +35,11 @@ public class OrderService {
         }
         return "Did not delete";
     }
+
+    public OrderDTO getOrderById(Integer id){
+        Order order = orderRepository.getReferenceById(id);
+
+        OrderDTO orderDTO = OrderDTO.convertToDTO(order);
+        return orderDTO;
+    }
 }
