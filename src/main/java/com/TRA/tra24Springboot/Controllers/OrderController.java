@@ -24,25 +24,8 @@ public class OrderController {
         return orderService.createOrder(order);
     }
 
-
-/*    @PutMapping("update")
-    public Order updateOrder(@RequestBody Order userOrder){
-        order1.setUpdatedDate(new Date());
-        order1 = userOrder;
-        return order1;
+    @DeleteMapping("delete")
+    public String deleteById(@RequestParam Integer id){
+        return orderService.deleteOrderById(id);
     }
-
-    @PostMapping("cancel/{id}")
-    public String cancelOrder(@PathVariable Integer id){
-        if(order1.getId().equals(id)){
-            order1.setStatus(OrderStatus.CANCELED);
-        }
-
-        return "Success";
-    }
-
-    @GetMapping("get")
-    public Order reportOrder(){
-        return order1;
-    }*/
 }
