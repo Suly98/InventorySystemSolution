@@ -31,31 +31,6 @@ public class ProductController {
         return productService.deleteProductById(id);
     }
 
-//    @PostMapping("delete/{id}")
-//    public String deleteProduct(@PathVariable Integer id){
-//
-//            if(globalProduct.getId().equals(id)){
-//                globalProduct.setIsActive(Boolean.FALSE);
-//                System.out.println(globalProduct.toString());
-//
-//        }
-//        return "Success!";
-//    }
-
-//    @PutMapping("update")
-//    public Product updateProduct(@RequestBody Product userProduct){
-//
-//
-//        ProductDetails pd = userProduct.getProductDetails();
-//        pd.setUpdatedDate(new Date());
-//
-//        userProduct.setProductDetails(pd);
-//        userProduct.setUpdatedDate(new Date());
-//
-//        globalProduct = userProduct;
-//        return globalProduct;
-//    }
-
     @GetMapping("get")
     public ProductDTO getProductById(@RequestParam Integer id){
         return productService.getProductById(id);
