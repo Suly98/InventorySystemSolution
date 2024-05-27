@@ -28,4 +28,11 @@ public class OrderController {
     public String deleteById(@RequestParam Integer id){
         return orderService.deleteOrderById(id);
     }
+
+    @GetMapping("getById")
+    public OrderDTO getById(@RequestParam Integer id){
+        return orderService.getOrderById(id);
+    }
+
+
 }
