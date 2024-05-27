@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -41,5 +42,10 @@ public class OrderService {
 
         OrderDTO orderDTO = OrderDTO.convertToDTO(order);
         return orderDTO;
+    }
+
+    public List<OrderDTO> getAll(){
+        List<Order> orders = orderRepository.findAll();
+        return OrderDTO.convertToDTO(orders);
     }
 }
