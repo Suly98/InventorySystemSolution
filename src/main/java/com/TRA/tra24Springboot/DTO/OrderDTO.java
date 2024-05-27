@@ -21,7 +21,7 @@ public class OrderDTO {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setId(order.getId());
         orderDTO.setCategoryName(order.getCategoryName());
-        orderDTO.setOrderedDateDTO(order.getOrderDate());
+        orderDTO.setOrderedDateDTO(new Date());
         orderDTO.setDescription(order.getDescription());
         return orderDTO;
     }
