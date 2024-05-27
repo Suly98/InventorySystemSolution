@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.InvoiceRepositories;
 
+import com.TRA.tra24Springboot.DTO.InventoryDTO;
 import com.TRA.tra24Springboot.Models.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,5 +14,7 @@ public interface InventoryRepository extends JpaRepository <Inventory, Integer>{
     @Query("SELECT inv FROM Inventory inv WHERE inv.location =:loc")
     List<Inventory> getByLocationName(@Param("loc") String location);
 
+    @Query("SELECT m FROM Inventory m WHERE m.manager =:manager")
+    InventoryDTO getByName(@Param("manager") String managerName);
 
 }
