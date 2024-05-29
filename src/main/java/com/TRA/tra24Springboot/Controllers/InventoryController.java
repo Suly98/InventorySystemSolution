@@ -13,8 +13,6 @@ import java.util.List;
 @RequestMapping("Inventory")
 public class InventoryController {
 
-
-
     @Autowired
     InventoryService inventoryService;
 
