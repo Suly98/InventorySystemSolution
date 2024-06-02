@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 public class SlackService {
 
 
-
     @Value("${slack.token}")
     private String slackToken;
 
@@ -19,19 +18,19 @@ public class SlackService {
         String token = slackToken; // Your Slack API token
 
         channel = "#random";
-        message = "Testing";
+        message = "Hello from Sulaiman";
+
+
+
+
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel(channel)
                 .text(message)
                 .build();
 
         try {
-            ChatPostMessageResponse response = slack.methods(token).chatPostMessage(request);
-            if (response.isOk()) {
-                System.out.println("Message sent successfully to Slack!");
-            } else {
-                System.out.println("Failed to send message to Slack: " + response.getError());
-            }
+            slack.methods(token).chatPostMessage(request);
+
         } catch (Exception e) {
             System.out.println("Error sending message to Slack: " + e.getMessage());
         }
