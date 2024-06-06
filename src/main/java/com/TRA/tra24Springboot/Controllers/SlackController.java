@@ -14,8 +14,9 @@ public class SlackController {
     @Autowired
     SlackService slackService;
 
+
     @PostMapping("m")
     public void sendMessage(){
-        slackService.sendMessage("random","hello");
+        slackService.sendMessage("pry","hello");
     }
 }

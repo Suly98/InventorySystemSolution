@@ -17,9 +17,6 @@ public class SlackService {
         Slack slack = Slack.getInstance();
         String token = slackToken; // Your Slack API token
 
-        channel = "#random";
-        message = "Hello from Sulaiman";
-
 
 
 
