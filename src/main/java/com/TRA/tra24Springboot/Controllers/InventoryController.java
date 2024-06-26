@@ -3,7 +3,9 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.DTO.InventoryDTO;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Services.InventoryService;
+import com.TRA.tra24Springboot.Services.SlackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +18,14 @@ public class InventoryController {
     @Autowired
     InventoryService inventoryService;
 
+    @Autowired
+    SlackService slackService;
+
+    //notify the customer everytime he add stock!
+    @Scheduled(cron = "30 5 * * * ?")
     @PostMapping("addStock")
     public InventoryDTO addStock(@RequestBody Inventory inventory){
+        slackService.sendMessageOnSlack();
         return inventoryService.addInventory(inventory);
     }
 

@@ -24,13 +24,15 @@ public class SlackController {
 //    public void sendMessage(){
 //        slackService.sendMessage("pry","hello");
 //    }
-    @GetMapping("get")
-    public String sendMail(String receiver, String sender,
-                         String emailBody, String subject){
-        mailingService.sendSimpleMail(receiver, sender,
-                emailBody, subject );
-        return "Success";
-    }
+
+    // this is to send emails
+//    @GetMapping("get")
+//    public String sendMail(String receiver, String sender,
+//                         String emailBody, String subject){
+//        mailingService.sendSimpleMail(receiver, sender,
+//                emailBody, subject );
+//        return "Success";
+//    }
 }
 
 
