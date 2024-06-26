@@ -2,7 +2,10 @@ package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
+import com.TRA.tra24Springboot.Services.SlackService;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -11,12 +14,18 @@ public class ReportingController {
 
     Inventory inventory1 = new Inventory();
 
+    @Autowired
+    SlackService slackService;
+
     @GetMapping("inventoryCheck")
     public void lowOnInventory(@NotNull List<Product> productList) {
-        if (productList.size() <= 5) {
-            System.out.println("INVENTORY IS LOW!!");
+        String channel = "Teams";
+        if(productList.size() <= 5) {
+            String message = "Stock is very low!";
+            slackService.sendMessage(channel,message);
         } else {
-            System.out.println("Inventory is OK!");
+            String message = "Inventory is OK!";
+            slackService.sendMessage(channel,message);
         }
     }
 
@@ -30,6 +39,8 @@ public class ReportingController {
         return true;
     }
 
+    //to report all the stock every month!
+    @Scheduled(cron = "0 0 0 L * *")
     @GetMapping("report")
     public Inventory reportAll(){
         return inventory1;

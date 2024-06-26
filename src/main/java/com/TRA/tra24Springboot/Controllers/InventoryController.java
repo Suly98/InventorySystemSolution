@@ -25,7 +25,9 @@ public class InventoryController {
     @Scheduled(cron = "30 5 * * * ?")
     @PostMapping("addStock")
     public InventoryDTO addStock(@RequestBody Inventory inventory){
-        slackService.sendMessageOnSlack();
+        String channel = "Teams";
+        String message = "a Stock has been added!";
+        slackService.sendMessage(channel, message);
         return inventoryService.addInventory(inventory);
     }
 
