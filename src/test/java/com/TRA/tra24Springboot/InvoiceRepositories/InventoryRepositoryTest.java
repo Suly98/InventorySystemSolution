@@ -45,5 +45,12 @@ class InventoryRepositoryTest {
         Assertions.assertThat(inventory.getFirst().getLocation()).isEqualTo("Sinaw City");
     }
 
+    @Test
+    public void getByName() {
+        Inventory inventory = inventoryRepository.getByName("Mohammed");
+        Assertions.assertThat(inventory).isNotNull();
+        Assertions.assertThat(inventory.getSupplier()).isEqualTo("Ahmed");
+    }
+
 
 }
