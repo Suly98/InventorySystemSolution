@@ -17,10 +17,8 @@ public class Inventory extends BaseEntity {
     Integer id;
     @OneToMany
     List<Product> productsInInventory;
-
     @OneToMany
     List<Order> ordersInInventory;
-
     String location;
     String manager;
     List<String> workers;
