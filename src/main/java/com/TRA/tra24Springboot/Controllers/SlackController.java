@@ -19,20 +19,20 @@ public class SlackController {
     @Autowired
     MailingService mailingService;
 
-//    @Scheduled(cron = "* * * * * ?")
-//    @PostMapping("m")
-//    public void sendMessage(){
-//        slackService.sendMessage("pry","hello");
-//    }
+    @Scheduled(cron = "* * * * * ?")
+    @PostMapping("m")
+    public void sendMessage(){
+        slackService.sendMessage("pry","hello");
+    }
 
-    // this is to send emails
-//    @GetMapping("get")
-//    public String sendMail(String receiver, String sender,
-//                         String emailBody, String subject){
-//        mailingService.sendSimpleMail(receiver, sender,
-//                emailBody, subject );
-//        return "Success";
-//    }
+//     this is to send emails
+    @GetMapping("get")
+    public String sendMail(String receiver, String sender,
+                         String emailBody, String subject){
+        mailingService.sendSimpleMail(receiver, sender,
+                emailBody, subject );
+        return "Success";
+    }
 }
 
 
