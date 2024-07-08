@@ -21,6 +21,7 @@ public class MailingService {
     @Value("${spring.mail.username}")
     private String sender;
 
+    //to send emails
     public String sendSimpleMail(String receiver, String sender,
                                  String emailBody, String subject ){
         try{
@@ -37,6 +38,7 @@ public class MailingService {
         }
     }
 
+    //to send email with attachment!
     public String sendMailWithAttachment(){
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
@@ -53,7 +55,6 @@ public class MailingService {
             mimeMessageHelper.addAttachment(file.getFilename(), file);
             javaMailSender.send(mimeMessage);
             return "Success!";
-
 
         } catch (MessagingException e){
             return "Error";
