@@ -12,7 +12,6 @@ import java.util.List;
 
 public class ReportingController {
 
-    Inventory inventory1 = new Inventory();
 
     @Autowired
     SlackService slackService;
@@ -40,10 +39,10 @@ public class ReportingController {
     }
 
     //to report all the stock every month!
-    @Scheduled(cron = "0 0 0 L * *")
+    //@Scheduled(cron = "0 0 0 L * *")
     @GetMapping("report")
-    public Inventory reportAll(){
-        return inventory1;
+    public String reportAll(){
+        return "Inventory";
     }
 
 
