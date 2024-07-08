@@ -1,7 +1,6 @@
 package com.TRA.tra24Springboot.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import org.aspectj.weaver.ast.Or;
@@ -13,7 +12,9 @@ import java.util.List;
 @Entity
 @Builder
 public class Inventory extends BaseEntity {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer id;
     @OneToMany
     List<Product> productsInInventory;
 
