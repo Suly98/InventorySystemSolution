@@ -10,12 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class SlackService {
 
-
     @Value("${slack.token}")
     private String slackToken;
 
-    @Scheduled(cron = "* * * * * ?")
-    public void sendMessageOnSlack(){
+    //@Scheduled(cron = "* * * * * ?")
+    public void sendMessageOnSlack() {
         String channel = "pry";
         String message = "scheduled test";
         sendMessage(channel, message);
@@ -26,17 +25,12 @@ public class SlackService {
         Slack slack = Slack.getInstance();
         String token = slackToken; // Your Slack API token
 
-
-
-
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel(channel)
                 .text(message)
                 .build();
-
         try {
             slack.methods(token).chatPostMessage(request);
-
         } catch (Exception e) {
             System.out.println("Error sending message to Slack: " + e.getMessage());
         }
