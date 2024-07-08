@@ -2,6 +2,7 @@ package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import lombok.Builder;
 import lombok.Data;
 import org.aspectj.weaver.ast.Or;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Builder
 public class Inventory extends BaseEntity {
 
     @OneToMany
