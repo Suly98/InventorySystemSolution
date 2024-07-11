@@ -42,7 +42,7 @@ class InventoryRepositoryTest {
     public void getByLocationName() {
         List<Inventory> inventory = inventoryRepository.getByLocationName("Sinaw City");
         Assertions.assertThat(inventory).isNotNull();
-        Assertions.assertThat(inventory.getFirst().getLocation()).isEqualTo("Sinaw City");
+        Assertions.assertThat(inventory.get(0).getLocation()).isEqualTo("Sinaw City");
     }
 
     @Test
