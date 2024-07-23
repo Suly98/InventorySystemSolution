@@ -98,7 +98,25 @@ class InventoryServiceTest {
 
     @Test
     void deleteInventory() {
-        }
+        String locationName = "Sinaw";
+
+        Inventory mockInventory = Inventory.builder()
+                .location(locationName)
+                .build();
+        mockInventory.setIsActive(true);
+
+        when(inventoryRepository.getByLocationName(locationName));
+
+        String result = inventoryService.deleteInventory(locationName);
+
+        verify(inventoryRepository, times(1)).getByName(locationName);
+        verify(inventoryRepository, times(1)).save(mockInventory);
+
+        assertEquals("Success", result);
+
+        assertEquals(false, mockInventory.getIsActive());
+
+    }
 
     @Test
     void getAll() {
