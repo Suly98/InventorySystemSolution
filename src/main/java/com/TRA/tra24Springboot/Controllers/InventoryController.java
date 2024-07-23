@@ -22,7 +22,7 @@ public class InventoryController {
     SlackService slackService;
 
     //notify the customer everytime he add stock!
-    @Scheduled(cron = "30 5 * * * ?")
+    //@Scheduled(cron = "30 5 * * * ?")
     @PostMapping("addStock")
     public InventoryDTO addStock(@RequestBody Inventory inventory){
         String channel = "Teams";
@@ -49,5 +49,10 @@ public class InventoryController {
     @GetMapping("getByManager")
     public InventoryDTO getByManager(@RequestParam String managerName){
         return inventoryService.getInventoryByManager(managerName);
+    }
+
+    @GetMapping("hi")
+    public String hi(@RequestParam String word){
+        return word;
     }
 }
