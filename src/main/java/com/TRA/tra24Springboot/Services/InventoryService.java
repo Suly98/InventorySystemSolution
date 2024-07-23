@@ -47,6 +47,12 @@ public class InventoryService {
         return "Success";
     }
 
+    public String deleteByManager(String manager){
+        Inventory inventoryToDelete = inventoryRepository.getByName(manager);
+        inventoryToDelete.setIsActive(false);
+        return "Success";
+    }
+
     public List<InventoryDTO> getAll(){
         List<Inventory> inventories = inventoryRepository.findAll();
 
